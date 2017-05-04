@@ -1,0 +1,42 @@
+<div class='class'>
+<h2>Add a new post</h2>
+<head>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+<%= form_for @post do |p|%>
+
+<% if @post.errors.any? %>
+<h3> Errors <h3>
+<ul>
+<% @post.errors.full_messages.each do |message| %>
+ <li> <%= message %> </li> 
+</ul>
+<% end %>
+<% end %>
+    <%= simple_form_for(@post, html: { class: 'form-horizontal' }) do 	|p|%>
+
+<p>
+
+	<em><%= p.label :Firstname %></em><br>
+<%= p.text_field :firstname %>
+</p>
+<p>
+	<em><%= p.label :Lastname %></em><br>
+	<%= p.text_field :lastname %>
+	</p>
+	<p>
+	<em><%= p.label :Feedback %></em><br>
+	<%= p.text_area :feedback %>
+	</p>
+	<p>
+
+	<%= p.submit "add a feedback" %><br>
+	<% end %>
+<% end %>
+
+</p>
+</body>
+</div>

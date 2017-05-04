@@ -1,0 +1,55 @@
+
+
+<head>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Crafty+Girls" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aguafina+Script" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Eater+Caps" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <style type="text/css"> h1{color: #00FFFF}</style> -->
+</head>
+<style type="text/css">
+
+</style>
+<body>
+<ul>
+	<li></li>
+</ul>
+
+<h1 align = "center" class='class' style="background-color:'#FFA200' "> WELCOME BUDDY!!</h1>
+<div class="class">  
+
+<b><em><h1 class='class' >Sign up!</h1></em></b><br>
+
+<%= form_for :user, url: '/users' do |p| %>
+  <p>
+<em><%= p.label :name %></em><br>
+<%= p.text_field :name %>
+</p>
+<p>
+	<em><%= p.label :email %></em><br>
+	<%= p.text_field :email %>
+	</p>
+	<p>
+	<em><%= p.label :password %></em><br>
+	<%= p.text_field :password %>
+	</p>
+	
+	<p>
+	<em><%= p.label :password_confirmation%></em><br>
+	<%= p.text_field :password_confirmation %>
+	</p><br>
+
+	<p>	
+	<%= p.submit "Sign In" ,:class =>'f' %> </p> 
+	<% end %>
+
+
+	
+</div>
+</body>

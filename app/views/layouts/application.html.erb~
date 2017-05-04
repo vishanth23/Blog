@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+ <% flash.each do |k,v| %>
+<b><%= v %><b>
+<% end %>
+<% if current_user %>	
+<p align = "right">  logged in as <b><em><%= current_user.name %> </em>| <%= link_to "Logout", '/logout' %></b></p>
+<% else %>
+ <p align = "right" > <b><%=link_to 'Admin Login','/login'%>| <%= link_to 'Guest', '/sessions' %> | <%= link_to 'Signup', '/signup' %></b></p>
+<% end %>
+<% if admin_user%>
+<p align = "right">  logged in as <b><em><%= admin_user.name %> 	admin</em>| <%= link_to "Logout", '/logout' %></b></p>
+<% else %>	 
+<p> </p>
+<% end %>
+
+    <%= yield %>
+  </body>
+</html>

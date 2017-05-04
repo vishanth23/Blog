@@ -1,0 +1,17 @@
+
+<p style='color:white'>	
+    <%= form_for users_path do %>
+	<%= text_field_tag :search , params[:search] %>
+     <%= submit_tag "search" %>
+<% end %></p>
+<p style='color:white'>
+<% if @us=="" %>
+
+<% else %>
+
+<% @users.each do |f|  %>
+<%= f.name %>
+<% end %>
+<% end %>
+</p>
+

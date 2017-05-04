@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+ <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Crafty+Girls" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <% flash.each do |k,v| %>
+<b><%= v %><b>
+<% end %>
+<style type="text/css"> 
+.k{
+		font-size: 14px;
+	padding-top: 5px;
+	padding-right: 22px;
+	color: #FFA200;
+
+	font-family: Crafty Girls;  
+}
+</style>
+<div>
+<% if current_user %>	
+<p align = "right" class="k" >  logged in as <b><em><%= current_user.name %> </em>| <%= link_to "Logout", '/logout',class: 'k' %></b></p>
+<% else %>
+ <p align = "right" class='k' > <b><%=link_to 'Admin Login','/login',class: 'k' %>| <%= link_to 'Guest', '/sessions',class: 'k' %> | <%= link_to 'Signup', '/signup',	class: 'k'%></b></p>
+<% end %>
+<% if admin_user%>
+<p align = "right" >  logged in as <b><em><%= admin_user.name %> admin</em>| <%= link_to "Logout", '/logout'%></b></p>
+<% else %>	 
+<p> </p>
+<% end %> 
+</div> 
+    <%= yield %>
+  </body>
+</html>

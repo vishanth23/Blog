@@ -1,0 +1,20 @@
+<div class='class'>
+<h2>Edit a post</h2>
+<%= form_for @post do |p|%>
+<p>
+<em><%= p.label :Firstname %></em><br>
+<%= p.text_field :firstname %>
+</p>
+<p>
+<em><%= p.label :Lastname %></em><br>
+<%= p.text_field :lastname %>
+</p>
+<p>
+<em><%= p.label :Feedback %></em><br>
+<%= p.text_area :feedback %>
+</p>
+<p>
+<%= p.submit "add a feedback" ,class: 'f'%><br>
+<% end %>
+</p>
+</div>

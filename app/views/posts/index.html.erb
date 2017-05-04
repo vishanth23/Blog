@@ -1,0 +1,46 @@
+<div class='class'>
+<% if admin_user %>
+<%= form_tag posts_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "search" %>
+<% end %>
+
+
+
+	
+
+
+<% @posts.each do |p| %>
+<h2><em>Firstname<b></h2>	
+<h3><%= link_to p.firstname,p %></h3>
+<h2><em>Lastname<em></h2>
+<h3><%= p.lastname %></h3>
+<h2><em>Feeback<em></h2>
+<h3><%=p.feedback%><h3>	
+<%= link_to "Edit",edit_post_path(p),class: 'f' %>|
+<%= link_to "Delete", p , :data => {:confirm => "are you sure?"}, :method => :delete %>
+<hr>
+
+<hr>
+<% end %>
+
+<%= link_to "add a new feedback",new_post_path %>
+
+	<% end %>
+<% if current_user %>
+<% @users.each do |d| %>
+
+<h3><em>Firstname :<b><%= d.firstname %></h3>
+
+<h3><em>Lastname :<em><%= d.lastname %></h3>
+<h3><em>Feeback :<em><%= d.feedback %></h3>
+<br>
+<%= link_to "Edit",edit_post_path(d),class: 'f' %>
+<%= link_to "Delete", d , :data => {:confirm => "are you sure?"}, :method => :delete %>
+<hr>
+<% end %>
+<br>
+<%= link_to "add a new feedback",new_post_path %>
+<% end %>
+
+</div>
