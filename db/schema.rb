@@ -22,10 +22,9 @@ ActiveRecord::Schema.define(version: 20170403072604) do
   create_table "posts", force: :cascade do |t|
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "feedback"
+    t.text     "feedback"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.         "usrs"
     t.integer  "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -36,14 +35,6 @@ ActiveRecord::Schema.define(version: 20170403072604) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-  end
-
-  create_table "usrs", force: :cascade do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "feedback"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
